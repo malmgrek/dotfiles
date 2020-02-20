@@ -45,7 +45,5 @@ if [ -f `which powerline-daemon` ]; then
   POWERLINE_BASH_SELECT=1
   . /home/stastr/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
 fi
-# powerline-daemon -q
-# POWERLINE_BASH_CONTINUATION=1
-# POWERLINE_BASH_SELECT=1
-# . /home/stastr/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
+
+export TERM=tmux-256color
