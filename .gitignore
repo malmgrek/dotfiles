@@ -1,0 +1,24 @@
+/**
+
+# Git ignore
+!.gitignore
+
+# Bash
+!.bashrc
+
+# Tmux
+!.tmux.conf
+
+# Emacs
+!.emacs.d/
+.emacs.d/**
+!.emacs.d/init.el
+
+# Configs
+!.config/
+.config/**
+!.config/powerline/
+.config/powerline/**
+!.config/powerline/config.json
+!.config/powerline/themes/**
+!.config/powerline/themes/tmux/default.json
