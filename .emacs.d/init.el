@@ -18,6 +18,11 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)  ;; Delete trailing whitespace
 (use-package exec-path-from-shell)
 (setq column-number-mode t)
+
+;; There was a weird warning when opening Python files
+;; 'no abbrev-file found ...'. It was fixed with adding the below line.
+;; It is most likely due to some system dependent thing, as commenting out
+;; the flycheck virtual env paths removed the warning.
 (setq abbrev-file-name "~/.emacs.d/abbrev_defs")
 
 
