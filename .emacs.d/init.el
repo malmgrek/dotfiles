@@ -18,6 +18,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)  ;; Delete trailing whitespace
 (use-package exec-path-from-shell)
 (setq column-number-mode t)
+(setq abbrev-file-name "~/.emacs.d/abbrev_defs")
 
 
 (custom-set-variables
