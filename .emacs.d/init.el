@@ -19,13 +19,6 @@
 (use-package exec-path-from-shell)
 (setq column-number-mode t)
 
-;; There was a weird warning when opening Python files
-;; 'no abbrev-file found ...'. It was fixed with adding the below line.
-;; It is most likely due to some system dependent thing, as commenting out
-;; the flycheck virtual env paths removed the warning.
-(setq abbrev-file-name "~/.emacs.d/abbrev_defs")
-
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -169,7 +162,15 @@
   (setq flycheck-flake8-maximum-line-length 79)
   (setq flycheck-python-pylint-executable "~/miniconda/envs/leanheat/bin/pylint")
   (setq flycheck-python-flake8-executable "~/miniconda/envs/leanheat/bin/flake8")
-  (add-hook 'python-mode-hook 'global-flycheck-mode))
+  (add-hook 'python-mode-hook 'global-flycheck-mode)
+  :config
+  ;; There was a weird warning when opening Python files
+  ;; 'no abbrev-file found ...'. It was fixed with adding the below line.
+  ;; It is most likely due to Flycheck using the abbrev-mode under the hood.
+  ;; Can be fixed either by
+  ;; - (setq abbrev-file-name "~/.emacs.d/abbrev_defs")
+  ;; - the line below
+  (abbrev-mode -1))
 
 
 ;;
@@ -213,6 +214,15 @@
 ;; Adjusting window size
 (define-key global-map (kbd "C-x C-<up>") 'enlarge-window)
 (define-key global-map (kbd "C-x C-<down>") 'shrink-window)
+
+;; Windmove -- easier window switching
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+(global-set-key (kbd "C-c C-<left>")  'windmove-left)
+(global-set-key (kbd "C-c C-<right>") 'windmove-right)
+(global-set-key (kbd "C-c C-<up>")    'windmove-up)
+(global-set-key (kbd "C-c C-<down>")  'windmove-down)
+
 
 ;; Zooming in/out globally
 (defadvice text-scale-increase (around all-buffers (arg) activate)
