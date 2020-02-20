@@ -20,5 +20,8 @@
 !.config/powerline/
 .config/powerline/**
 !.config/powerline/config.json
-!.config/powerline/themes/**
+!.config/powerline/themes/
+.config/powerline/themes/**
+!.config/powerline/themes/tmux/
+.config/powerline/themes/tmux/**
 !.config/powerline/themes/tmux/default.json
