@@ -42,7 +42,15 @@
 
 ;; Org mode
 (use-package org
+  :commands org-babel-do-load-languages
   :init
+  (add-hook 'org-mode-hook (lambda ()
+			     (fset 'tex-font-lock-suscript 'ignore)
+                             (org-babel-do-load-languages
+                              'org-babel-load-languages
+                              '((python . t)
+                                (shell . t)
+				(dot . t)))))
   (setq org-log-done t
 	org-hide-leading-stars t
 	org-agenda-files (list "~/Documents/org/"))
