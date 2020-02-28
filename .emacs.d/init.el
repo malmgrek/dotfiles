@@ -198,7 +198,7 @@
 
 (use-package expand-region
   :bind
-  ("C-." . er/expand-region))
+  ("M-2" . er/expand-region))
 
 
 ;;
