@@ -184,7 +184,7 @@
 
 
 ;;
-;; JavaScript development
+;; Web development
 ;;
 
 ;; JS2 mode
@@ -193,6 +193,7 @@
   :mode "\\.js\\'"
   :interpreter "node")
 
+(use-package web-mode)
 
 ;;
 ;; Multiline editing (TODO)
