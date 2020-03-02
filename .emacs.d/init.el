@@ -222,6 +222,7 @@
 (blink-cursor-mode -1)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))  ;; All backups to same dir
 (xclip-mode 1)  ;; Enable clipboard when using emacs -nw
+(delete-selection-mode 1)  ;; Overwrite selection
 
 ;; Additional syntax highlighting
 (use-package markdown-mode
