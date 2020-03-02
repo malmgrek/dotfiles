@@ -233,6 +233,8 @@
   :mode "\\.csv$"
   :init (setq csv-separators '(";")))
 
+(use-package graphviz-dot-mode)
+
 (use-package nix-mode)
 
 (use-package json-mode)
@@ -254,7 +256,6 @@
 (global-set-key (kbd "C-c C-<right>") 'windmove-right)
 (global-set-key (kbd "C-c C-<up>")    'windmove-up)
 (global-set-key (kbd "C-c C-<down>")  'windmove-down)
-
 
 ;; Zooming in/out globally
 (defadvice text-scale-increase (around all-buffers (arg) activate)
