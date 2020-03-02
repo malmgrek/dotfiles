@@ -29,7 +29,7 @@
     ("777a3a89c0b7436e37f6fa8f350cbbff80bcc1255f0c16ab7c1e82041b06fccd" default)))
  '(package-selected-packages
    (quote
-    (graphviz-dot-mode clojure-mode json-mode csv-mode yaml-mode julia-mode nix-mode xclip list-packages-ext markdown-mode powerline diredfl js2-refactor spacemacs-dark dracula-theme expand-region hydra exec-path-from-shell python-mode rainbow-mode fill-column-indicator solidity-flycheck flycheck multi-term rg counsel-world-clock counsel wgrep ivy magit org-journal))))
+    (avy web-mode graphviz-dot-mode clojure-mode json-mode csv-mode yaml-mode julia-mode nix-mode xclip list-packages-ext markdown-mode powerline diredfl js2-refactor spacemacs-dark dracula-theme expand-region hydra exec-path-from-shell python-mode rainbow-mode fill-column-indicator solidity-flycheck flycheck multi-term rg counsel-world-clock counsel wgrep ivy magit org-journal))))
 
 
 ;; Magit
@@ -83,7 +83,7 @@
   (electric-pair-mode 1))
 
 
-;; Ivy mode
+;; Ivy, Avy, Counsel
 (use-package ivy
   :commands
   ivy-mode
@@ -96,21 +96,20 @@
          ("C-c r" . ivy-resume)
 	 ("C-x C-b" . ibuffer)))
 
+(use-package avy
+  :bind (("C-:" . avy-goto-char)
+	 ("C-'" . avy-goto-char-2)
+	 ("M-g f" . avy-goto-line)
+	 ("M-g w" . avy-goto-word-1)
+	 ("M-g e" . avy-goto-word-0)))
+
 (use-package counsel
   :init
   (setq counsel-find-file-ignore-regexp "\\archive\\'")
   (defun counsel-org-rg ()
     "Search org notes using ripgrep."
     (interactive)
-    (counsel-rg "-g*org -g!*archive* -- " "~/Dropbox/Notes" nil nil))
-  (defun counsel-nixpkgs-rg ()
-    "Search nixpkgs using ripgrep."
-    (interactive)
-    (counsel-rg "" "~/.nix-defexpr/channels/nixpkgs" nil nil))
-  (defun counsel-nixpkgs-file ()
-    "Search nixpkgs using ripgrep."
-    (interactive)
-    (counsel-file-jump "" "~/.nix-defexpr/channels/nixpkgs"))
+    (counsel-rg "-g*org -g!*archive* -- " "~/Documents/org" nil nil))
   :bind (("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)
          ("C-c g" . counsel-rg)
