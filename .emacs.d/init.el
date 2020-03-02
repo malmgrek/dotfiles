@@ -52,12 +52,15 @@
                                 (shell . t)
 				(dot . t)))))
   (setq org-log-done t
+	org-src-fontify-natively t
 	org-hide-leading-stars t
-	org-agenda-files (list "~/Documents/org/"))
+	org-agenda-files (list "~/Documents/org/")
+	org-todo-keywords '((sequence "TODO" "WIP" "WAITING" "HOLD" "DONE" "CANCELED")))
   (define-key global-map "\C-cl" 'org-store-link)
   (define-key global-map "\C-ca" 'org-agenda)
-  (setq org-todo-keywords
-	'((sequence "TODO" "WIP" "WAITING" "HOLD" "DONE" "CANCELED"))))
+  :config
+  (unbind-key "C-'" org-mode-map)
+  (unbind-key "C-," org-mode-map))
 
 
 ;; Org Journal
