@@ -260,6 +260,13 @@
       ad-do-it)))
 
 
+;; Appearance
+
+(use-package powerline
+  :init
+  (powerline-default-theme))
+
+
 ;; ;; Dracula theme customized
 ;; (load-theme 'dracula t)
 ;; (custom-theme-set-faces
