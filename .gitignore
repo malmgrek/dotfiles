@@ -14,6 +14,13 @@
 .emacs.d/**
 !.emacs.d/init.el
 
+#IPython
+!.ipython/
+.ipython/**
+!.ipython/profile_default/
+.ipython/profile_default/**
+!.ipython/profile_default/ipython_config.py
+
 # Configs
 !.config/
 .config/**
