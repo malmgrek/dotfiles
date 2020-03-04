@@ -2,7 +2,10 @@
 
 See https://github.com/powerline/powerline/issues/1953
 """
-from powerline.bindings.ipython.since_7 import PowerlinePrompts
-c = get_config()
-c.TerminalInteractiveShell.simple_prompt = False
-c.TerminalInteractiveShell.prompts_class = PowerlinePrompts
+try:
+    from powerline.bindings.ipython.since_7 import PowerlinePrompts
+    c = get_config()
+    c.TerminalInteractiveShell.simple_prompt = False
+    c.TerminalInteractiveShell.prompts_class = PowerlinePrompts
+except Exception as err:
+    pass
