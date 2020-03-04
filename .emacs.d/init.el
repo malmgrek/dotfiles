@@ -24,7 +24,7 @@
     ("777a3a89c0b7436e37f6fa8f350cbbff80bcc1255f0c16ab7c1e82041b06fccd" default)))
  '(package-selected-packages
    (quote
-    (avy web-mode graphviz-dot-mode clojure-mode json-mode csv-mode yaml-mode julia-mode nix-mode xclip list-packages-ext markdown-mode powerline diredfl js2-refactor spacemacs-dark dracula-theme expand-region hydra exec-path-from-shell python-mode rainbow-mode fill-column-indicator solidity-flycheck flycheck multi-term rg counsel-world-clock counsel wgrep ivy magit org-journal))))
+    (phi-search ace-window avy web-mode graphviz-dot-mode clojure-mode json-mode csv-mode yaml-mode julia-mode nix-mode xclip list-packages-ext markdown-mode powerline diredfl js2-refactor spacemacs-dark dracula-theme expand-region hydra exec-path-from-shell python-mode rainbow-mode fill-column-indicator solidity-flycheck flycheck multi-term rg counsel-world-clock counsel wgrep ivy magit org-journal))))
 
 
 ;; Magit
@@ -92,8 +92,8 @@
 	 ("C-x C-b" . ibuffer)))
 
 (use-package avy
-  :bind (("C-:" . avy-goto-char)
-	 ("C-'" . avy-goto-char-2)
+  :bind (("C-:" . avy-goto-char)    ;; doesn't work in terminal
+	 ("C-'" . avy-goto-char-2)  ;; doesn't work in terminal
 	 ("M-g f" . avy-goto-line)
 	 ("M-g w" . avy-goto-word-1)
 	 ("M-g e" . avy-goto-word-0)))
@@ -199,8 +199,48 @@
 ;;
 
 (use-package expand-region
-  :bind
-  ("M-2" . er/expand-region))
+  :after (org)
+  :bind ("C-." . er/expand-region)
+  :init
+  (require 'expand-region)
+  (require 'cl)
+  (defun mark-around* (search-forward-char)
+    ;; Linting gives a warning `mark-around* not known to be defined
+    ;; -- can be avoided by setting above
+    ;; -- (declare-function mark-around* "init" ())
+    (let* ((expand-region-fast-keys-enabled nil)
+           (char (or search-forward-char
+                     (char-to-string
+                      (read-char "Mark inner, starting with:"))))
+           (q-char (regexp-quote char))
+           (starting-point (point)))
+      (when search-forward-char
+        (search-forward char (point-at-eol)))
+      (cl-flet ((message (&rest args) nil))
+        (er--expand-region-1)
+        (er--expand-region-1)
+        (while (and (not (= (point) (point-min)))
+                    (not (looking-at q-char)))
+          (er--expand-region-1))
+        (er/expand-region -1))))
+  (defun mark-around ()
+    (interactive)
+    (mark-around* nil))
+  (define-key global-map (kbd "M-i") 'mark-around))
+
+(use-package multiple-cursors
+  :init
+  (define-key global-map (kbd "C-'") 'mc-hide-unmatched-lines-mode)
+  (define-key global-map (kbd "C-,") 'mc/mark-next-like-this)
+  (define-key global-map (kbd "C-;") 'mc/mark-all-dwim))
+
+(use-package phi-search
+  :after multiple-cursors
+  :init (require 'phi-replace)
+  :bind ("C-:" . phi-replace)
+  :bind (:map mc/keymap
+              ("C-s" . phi-search)
+              ("C-r" . phi-search-backward)))
 
 
 ;;
@@ -251,22 +291,16 @@
 (define-key global-map (kbd "C-x C-<up>") 'enlarge-window)
 (define-key global-map (kbd "C-x C-<down>") 'shrink-window)
 
-;; Windmove -- easier window switching
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
-(global-set-key (kbd "C-c C-<left>")  'windmove-left)
-(global-set-key (kbd "C-c C-<right>") 'windmove-right)
-(global-set-key (kbd "C-c C-<up>")    'windmove-up)
-(global-set-key (kbd "C-c C-<down>")  'windmove-down)
+;; Ace window
+(global-set-key (kbd "M-o") 'ace-window)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
-;; Zooming in/out globally
-(defadvice text-scale-increase (around all-buffers (arg) activate)
-  (dolist (buffer (buffer-list))
-    (with-current-buffer buffer
-      ad-do-it)))
-
-
+;;
 ;; Appearance
+;;
+
+;; Fonts
+(set-face-attribute 'default nil :height 140)
 
 (use-package powerline
   :init
@@ -305,3 +339,6 @@
 			  ("\\<\\(FIXME\\):" 1 font-lock-warning-face prepend)
 			  ("\\<\\(XXX\\):" 1 font-lock-warning-face prepend)
 			  ("\\<\\(NOTE\\):" 1 font-lock-warning-face prepend)))
+
+(provide 'init)
+;;; init ends here
