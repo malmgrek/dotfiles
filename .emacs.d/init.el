@@ -14,11 +14,6 @@
   (require 'use-package))
 
 
-;; Hooks and generic
-(add-hook 'before-save-hook 'delete-trailing-whitespace)  ;; Delete trailing whitespace
-(use-package exec-path-from-shell)
-(setq column-number-mode t)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -136,6 +131,10 @@
 ;; Python development
 ;;
 
+(use-package exec-path-from-shell
+  :commands exec-path-from-shell-initialize
+  :init (exec-path-from-shell-initialize))
+
 ;; Python mode
 (use-package python
   :ensure t
@@ -223,6 +222,8 @@
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))  ;; All backups to same dir
 (xclip-mode 1)  ;; Enable clipboard when using emacs -nw
 (delete-selection-mode 1)  ;; Overwrite selection
+(setq column-number-mode t)  ;; Display column numbers
+(add-hook 'before-save-hook 'delete-trailing-whitespace)  ;; Delete trailing whitespace
 
 ;; Additional syntax highlighting
 (use-package markdown-mode
