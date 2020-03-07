@@ -264,6 +264,11 @@
 (delete-selection-mode 1)  ;; Overwrite selection
 (setq column-number-mode t)  ;; Display column numbers
 (add-hook 'before-save-hook 'delete-trailing-whitespace)  ;; Delete trailing whitespace
+(add-to-list 'auto-mode-alist '(".gitignore" . sh-mode))  ;; Syntax highlight in .gitignore
+
+;; Scroll screen
+(define-key global-map "\M-n" 'scroll-up-line)
+(define-key global-map "\M-p" 'scroll-down-line)
 
 ;; Additional syntax highlighting
 (use-package markdown-mode
