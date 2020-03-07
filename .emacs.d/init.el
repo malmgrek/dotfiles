@@ -254,6 +254,7 @@
 (display-time-mode 1)  ;; display time in modeline
 (global-display-line-numbers-mode)  ;; display line numbers
 (unbind-key "C-z" global-map)  ;; unbind keys
+(define-key global-map "\C-a" 'back-to-indentation)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
