@@ -8,7 +8,6 @@
 ;;; Code:
 (require 'package)
 (add-to-list 'package-archives '("MELPA"."http://melpa.milkbox.net/packages/") t)
-;;(add-to-list 'load-path "~/.emacs.d/python-mode/")
 (package-initialize)
 (eval-when-compile
   (require 'use-package))
