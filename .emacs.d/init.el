@@ -23,7 +23,7 @@
     ("777a3a89c0b7436e37f6fa8f350cbbff80bcc1255f0c16ab7c1e82041b06fccd" default)))
  '(package-selected-packages
    (quote
-    (phi-search ace-window avy web-mode graphviz-dot-mode clojure-mode json-mode csv-mode yaml-mode julia-mode nix-mode xclip list-packages-ext markdown-mode powerline diredfl js2-refactor spacemacs-dark dracula-theme expand-region hydra exec-path-from-shell python-mode rainbow-mode fill-column-indicator solidity-flycheck flycheck multi-term rg counsel-world-clock counsel wgrep ivy magit org-journal))))
+    (stan-mode phi-search ace-window avy web-mode graphviz-dot-mode clojure-mode json-mode csv-mode yaml-mode julia-mode nix-mode xclip list-packages-ext markdown-mode powerline diredfl js2-refactor spacemacs-dark dracula-theme expand-region hydra exec-path-from-shell python-mode rainbow-mode fill-column-indicator solidity-flycheck flycheck multi-term rg counsel-world-clock counsel wgrep ivy magit org-journal))))
 
 
 ;; Magit
@@ -285,6 +285,8 @@
 (use-package yaml-mode)
 
 (use-package clojure-mode)
+
+(use-package stan-mode)
 
 ;; Adjusting window size
 (define-key global-map (kbd "C-x C-<up>") 'enlarge-window)
