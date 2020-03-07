@@ -327,11 +327,11 @@
 ;;  '(py-number-face ((t (:foreground "#bd93f9")))))
 
 
-;; Spacemacs dark customized
+;; Spacemacs theme customized
 (load-theme 'spacemacs-dark t)
 (custom-theme-set-faces
  'spacemacs-dark
- '(font-lock-comment-delimiter-face ((t (:foreground "#2aa1ae"))))
+;; '(font-lock-comment-delimiter-face ((t (:foreground "#2aa1ae"))))
  '(py-decorators-face ((t (:foreground "#4f97d7"))))
  '(py-object-reference-face ((t (:foreground "#ce537a"))))
  '(py-pseudo-keyword-face ((t (:foreground "#a45bad"))))
