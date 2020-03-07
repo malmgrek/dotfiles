@@ -306,8 +306,10 @@
 ;; Appearance
 ;;
 
+;;
 ;; Fonts
-(set-face-attribute 'default nil :height 140)
+;; -- describe-font
+(set-face-attribute 'default nil :height 120 :family "DejaVuSansMono")
 
 (use-package powerline
   :init
