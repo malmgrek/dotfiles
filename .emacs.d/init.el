@@ -127,7 +127,8 @@
 (use-package swiper
   :bind ("C-c s" . swiper))
 
-(use-package wgrep)
+(use-package wgrep
+  :defer 2)
 
 (use-package hydra
   :defer 2)
@@ -177,6 +178,7 @@
 ;; TODO: Make function that loads the desired virtual environment
 
 (use-package flycheck
+  :defer 5
   :init
   (setq-default flycheck-emacs-lisp-load-path 'inherit)
   (setq flycheck-flake8-maximum-line-length 79)
@@ -241,11 +243,11 @@
   (define-key global-map (kbd "M-i") 'mark-around))
 
 (use-package multiple-cursors
+  :defer 2
   :init
   (define-key global-map (kbd "C-'") 'mc-hide-unmatched-lines-mode)
   (define-key global-map (kbd "C-,") 'mc/mark-next-like-this)
-  (define-key global-map (kbd "C-;") 'mc/mark-all-dwim)
-  :defer 2)
+  (define-key global-map (kbd "C-;") 'mc/mark-all-dwim))
 
 (use-package phi-search
   :after multiple-cursors
@@ -295,7 +297,7 @@
   :init (setq csv-separators '(";")))
 
 (use-package graphviz-dot-mode
-  :defer t)
+  :defer 5)
 
 (use-package nix-mode
   :mode "\\.nix\\'")
@@ -333,10 +335,12 @@
 
 ;;
 ;; Fonts
-;; -- describe-font
+;; -- Surprisingly slow at startup
+;; -- Find out current font: describe-font
 (set-face-attribute 'default nil :height 120 :family "DejaVuSansMono")
 
 (use-package powerline
+  :defer 1
   :init
   (powerline-default-theme))
 
