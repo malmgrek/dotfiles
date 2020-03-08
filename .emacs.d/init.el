@@ -42,7 +42,7 @@
 
 ;; Org mode
 (use-package org
-  :defer 2
+  :defer 1
   :commands org-babel-do-load-languages
   :init
   (add-hook 'org-mode-hook (lambda ()
