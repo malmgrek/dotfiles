@@ -142,31 +142,26 @@
 ;; Python development
 ;;
 
-(use-package exec-path-from-shell
-  :commands exec-path-from-shell-initialize
-  :init (exec-path-from-shell-initialize))
-
-;; Python mode
-(use-package python
-  :ensure t
-  :mode ("\\.py\\'" . python-mode)
-  :interpreter ("python" . python-mode))
+;; ;; This is super slow at startup
+;; ;; -- needed for activating virtualenv below
+;; (use-package exec-path-from-shell
+;;   :commands exec-path-from-shell-initialize
+;;   :init (exec-path-from-shell-initialize))
 
 ;; Anaconda mode
 (use-package anaconda-mode
-  :mode "\\.py\\'"
   :after exec-path-from-shell
   :commands (pythonic-activate
              pythonic-deactivate
              anaconda-eldoc-mode)
   :init
-  (defun activate (virtualenv)
-    "Activate a virtual environment so that pytest recognizes it."
-    (interactive "DEnv: ")
-    (pythonic-activate virtualenv)
-    (exec-path-from-shell-setenv
-     "PATH"
-     (string-join (python-shell-calculate-exec-path) ":")))
+  ;; (defun activate (virtualenv)
+  ;;   "Activate a virtual environment so that pytest recognizes it."
+  ;;   (interactive "DEnv: ")
+  ;;   (pythonic-activate virtualenv)
+  ;;   (exec-path-from-shell-setenv
+  ;;    "PATH"
+  ;;    (string-join (python-shell-calculate-exec-path) ":")))
   (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
 
