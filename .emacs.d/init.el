@@ -200,7 +200,7 @@
 
 (use-package web-mode
   :mode (("//.html//'" . web-mode)
-	 ("//.css" . web-mode)))
+	 ("//.css//'" . web-mode)))
 
 ;;
 ;; Multiline editing
