@@ -12,6 +12,12 @@
 (eval-when-compile
   (require 'use-package))
 
+(use-package benchmark-init
+  :ensure t
+  :config
+  ;; To disable collection of benchmark data after init is done.
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -23,7 +29,7 @@
     ("777a3a89c0b7436e37f6fa8f350cbbff80bcc1255f0c16ab7c1e82041b06fccd" default)))
  '(package-selected-packages
    (quote
-    (stan-mode phi-search ace-window avy web-mode graphviz-dot-mode clojure-mode json-mode csv-mode yaml-mode julia-mode nix-mode xclip list-packages-ext markdown-mode powerline diredfl js2-refactor spacemacs-dark dracula-theme expand-region hydra exec-path-from-shell python-mode rainbow-mode fill-column-indicator solidity-flycheck flycheck multi-term rg counsel-world-clock counsel wgrep ivy magit org-journal))))
+    (benchmark-init stan-mode phi-search ace-window avy web-mode graphviz-dot-mode clojure-mode json-mode csv-mode yaml-mode julia-mode nix-mode xclip list-packages-ext markdown-mode powerline diredfl js2-refactor spacemacs-dark dracula-theme expand-region hydra exec-path-from-shell python-mode rainbow-mode fill-column-indicator solidity-flycheck flycheck multi-term rg counsel-world-clock counsel wgrep ivy magit org-journal))))
 
 
 ;; Magit
@@ -36,6 +42,7 @@
 
 ;; Org mode
 (use-package org
+  :mode "\\.org\\'"
   :commands org-babel-do-load-languages
   :init
   (add-hook 'org-mode-hook (lambda ()
@@ -54,11 +61,14 @@
   (define-key global-map "\C-ca" 'org-agenda)
   :config
   (unbind-key "C-'" org-mode-map)
-  (unbind-key "C-," org-mode-map))
+  (unbind-key "C-," org-mode-map)
+  :bind (("C-c c" . org-capture)
+	 ("C-c a" . org-agenda)))
 
 
 ;; Org Journal
 (use-package org-journal
+  :mode "\\.org\\'"
   :init
   (setq org-journal-dir "~/Documents/org/journal/"
       org-journal-file-format "%Y%m%d.org"
@@ -119,7 +129,8 @@
 
 (use-package wgrep)
 
-(use-package hydra)
+(use-package hydra
+  :defer 2)
 
 (use-package diredfl
   :commands diredfl-global-mode
@@ -142,6 +153,7 @@
 
 ;; Anaconda mode
 (use-package anaconda-mode
+  :mode "\\.py\\'"
   :after exec-path-from-shell
   :commands (pythonic-activate
              pythonic-deactivate
@@ -191,7 +203,8 @@
   :mode "\\.js\\'"
   :interpreter "node")
 
-(use-package web-mode)
+(use-package web-mode
+  :mode "\\.html\\'")
 
 ;;
 ;; Multiline editing (TODO)
@@ -231,7 +244,8 @@
   :init
   (define-key global-map (kbd "C-'") 'mc-hide-unmatched-lines-mode)
   (define-key global-map (kbd "C-,") 'mc/mark-next-like-this)
-  (define-key global-map (kbd "C-;") 'mc/mark-all-dwim))
+  (define-key global-map (kbd "C-;") 'mc/mark-all-dwim)
+  :defer 2)
 
 (use-package phi-search
   :after multiple-cursors
@@ -277,22 +291,33 @@
 	 ("\\.markdown\\'" . markdown-mode)))
 
 (use-package csv-mode
-  :mode "\\.csv$"
+  :mode "\\.csv\\'"
   :init (setq csv-separators '(";")))
 
-(use-package graphviz-dot-mode)
+(use-package graphviz-dot-mode
+  :defer t)
 
-(use-package nix-mode)
+(use-package nix-mode
+  :mode "\\.nix\\'")
 
-(use-package json-mode)
+(use-package json-mode
+  :mode "\\.json\\'")
 
-(use-package julia-mode)
+(use-package julia-mode
+  :mode "\\.jl\\'")
 
-(use-package yaml-mode)
+(use-package yaml-mode
+  :mode (("\\.yaml\\'" . yaml-mode)
+	 ("\\.yml\\'" . yaml-mode)))
 
-(use-package clojure-mode)
+(use-package clojure-mode
+  :mode (("\\.clj\\'" . clojure-mode)
+	 ("\\.cljs\\'" . clojure-mode)
+	 ("\\.cljc\\'" . clojure-mode)
+	 ("\\.edn\\'" . clojure-mode)))
 
-(use-package stan-mode)
+(use-package stan-mode
+  :mode "\\.stan\\'")
 
 ;; Adjusting window size
 (define-key global-map (kbd "C-x C-<up>") 'enlarge-window)
@@ -351,3 +376,9 @@
 
 (provide 'init)
 ;;; init ends here
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
