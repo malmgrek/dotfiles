@@ -42,7 +42,7 @@
 
 ;; Org mode
 (use-package org
-  :mode "\\.org\\'"
+  :defer 2
   :commands org-babel-do-load-languages
   :init
   (add-hook 'org-mode-hook (lambda ()
@@ -60,19 +60,15 @@
   (define-key global-map "\C-cl" 'org-store-link)
   (define-key global-map "\C-ca" 'org-agenda)
   :config
+  (use-package org-journal
+    :config
+    (setq org-journal-dir "~/Documents/org/journal/"
+	  org-journal-file-format "%Y%m%d.org"
+	  org-journal-date-prefix "#+TITLE: Daily Notes "))
   (unbind-key "C-'" org-mode-map)
   (unbind-key "C-," org-mode-map)
   :bind (("C-c c" . org-capture)
 	 ("C-c a" . org-agenda)))
-
-
-;; Org Journal
-(use-package org-journal
-  :mode "\\.org\\'"
-  :init
-  (setq org-journal-dir "~/Documents/org/journal/"
-      org-journal-file-format "%Y%m%d.org"
-      org-journal-date-prefix "#+TITLE: Daily Notes "))
 
 
 ;; Paren mode
