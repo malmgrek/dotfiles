@@ -194,17 +194,20 @@
 ;; Web development
 ;;
 
-;; JS2 mode
 (use-package js2-mode
   :ensure t
-  :mode "\\.js\\'"
-  :interpreter "node")
+  :mode "\\.js\\'")
+
+(use-package rjsx-mode
+  :ensure t
+  :mode "\\.js\\'")
 
 (use-package web-mode
-  :mode "\\.html\\'")
+  :mode (("//.html//'" . web-mode)
+	 ("//.css" . web-mode)))
 
 ;;
-;; Multiline editing (TODO)
+;; Multiline editing
 ;;
 
 (use-package expand-region
