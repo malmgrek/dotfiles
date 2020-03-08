@@ -142,7 +142,7 @@
 ;; Python development
 ;;
 
-;; ;; This is super slow at startup
+;; ;; SLOW startup
 ;; ;; -- needed for activating virtualenv below
 ;; (use-package exec-path-from-shell
 ;;   :commands exec-path-from-shell-initialize
@@ -275,7 +275,7 @@
 (setq column-number-mode t)  ;; Display column numbers
 (add-hook 'before-save-hook 'delete-trailing-whitespace)  ;; Delete trailing whitespace
 (add-to-list 'auto-mode-alist '(".gitignore" . sh-mode))  ;; Syntax highlight in .gitignore
-;; Below settings are surprisingly slow at startup
+;; SLOW startup
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
@@ -334,7 +334,7 @@
 
 ;;
 ;; Fonts
-;; -- Surprisingly slow at startup
+;; SLOW startup
 ;; -- Find out current font: describe-font
 (set-face-attribute 'default nil :height 120 :family "DejaVuSansMono")
 
