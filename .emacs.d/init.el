@@ -269,16 +269,17 @@
 (global-display-line-numbers-mode)  ;; display line numbers
 (unbind-key "C-z" global-map)  ;; unbind keys
 (define-key global-map "\C-a" 'back-to-indentation)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(blink-cursor-mode -1)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))  ;; All backups to same dir
 (xclip-mode 1)  ;; Enable clipboard when using emacs -nw
 (delete-selection-mode 1)  ;; Overwrite selection
 (setq column-number-mode t)  ;; Display column numbers
 (add-hook 'before-save-hook 'delete-trailing-whitespace)  ;; Delete trailing whitespace
 (add-to-list 'auto-mode-alist '(".gitignore" . sh-mode))  ;; Syntax highlight in .gitignore
+;; Below settings are surprisingly slow at startup
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(blink-cursor-mode -1)
 
 ;; Scroll screen
 (define-key global-map "\M-n" 'scroll-up-line)
