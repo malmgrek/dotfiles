@@ -1,2 +1,2 @@
 # Decrease keyboard delay rate
-xset r rate 170 33
+xset r rate 400 25
