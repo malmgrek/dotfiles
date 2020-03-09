@@ -261,8 +261,6 @@
 (global-display-line-numbers-mode)  ;; Display line numbers
 (display-time-mode 1)  ;; Display time in modeline
 (setq-default fill-column 79)  ;; set default fill width (e.g. M-q)
-(display-time-mode 1)  ;; display time in modeline
-(global-display-line-numbers-mode)  ;; display line numbers
 (unbind-key "C-z" global-map)  ;; unbind keys
 (define-key global-map "\C-a" 'back-to-indentation)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))  ;; All backups to same dir
