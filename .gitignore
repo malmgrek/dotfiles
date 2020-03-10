@@ -9,9 +9,6 @@
 # Tmux
 !.tmux.conf
 
-# X
-!.xinitrc
-
 # Emacs
 !.emacs.d/
 .emacs.d/**
