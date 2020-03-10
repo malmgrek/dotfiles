@@ -146,7 +146,7 @@
 
 ;; Anaconda mode
 (use-package anaconda-mode
-  :after exec-path-from-shell
+  ;; :after exec-path-from-shell
   :commands (pythonic-activate
              pythonic-deactivate
              anaconda-eldoc-mode)
