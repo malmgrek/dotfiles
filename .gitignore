@@ -9,6 +9,9 @@
 # Tmux
 !.tmux.conf
 
+# Emacs profiles
+!.emacs-profiles.el
+
 # Custom Emacs config
 !.emacs.d/
 .emacs.d/**
