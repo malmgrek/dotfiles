@@ -9,10 +9,17 @@
 # Tmux
 !.tmux.conf
 
-# Emacs
+# Custom Emacs config
 !.emacs.d/
 .emacs.d/**
 !.emacs.d/init.el
+
+# Doom Emacs config
+!.doom.d/
+.doom.d/**
+!.doom.d/config.el
+!.doom.d/init.el
+!.doom.d/packages.el
 
 #IPython
 !.ipython/
