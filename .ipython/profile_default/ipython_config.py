@@ -9,3 +9,5 @@ try:
     c.TerminalInteractiveShell.prompts_class = PowerlinePrompts
 except Exception as err:
     pass
+finally:
+    c.TerminalInteractiveShell.editing_mode = "vi"
