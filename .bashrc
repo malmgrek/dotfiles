@@ -18,7 +18,7 @@ export PATH
 # User specific aliases and functions
 alias conda="/home/stastr/miniconda/bin/conda"
 # alias activate="/home/stastr/miniconda/bin/activate"
-source /home/stastr/miniconda/bin/activate sandbox
+# source /home/stastr/miniconda/bin/activate sandbox
 
 # Netgen directory
 export NETGENDIR="/opt/netgen/bin"
