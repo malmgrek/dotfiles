@@ -28,8 +28,8 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Documents/org/")
-(setq org-todo-keywords '((sequence "TODO" "WIP" "WAITING" "HOLD" "DONE" "CANCELED")))
+(setq org-directory "~/Documents/org/"
+      org-todo-keywords '((sequence "TODO" "WIP" "WAITING" "HOLD" "DONE" "CANCELED")))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -53,8 +53,6 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 
-(use-package! org-journal
-  :config
-  (setq org-journal-dir "~/Documents/org/journal/")
-  (setq org-journal-file-format "%Y%m%d.org")
-  (setq org-journal-date-prefix "#+TITLE: Daily Notes "))
+(setq org-journal-dir "~/Documents/org/journal/"
+      org-journal-file-format "%Y%m%d.org"
+      org-journal-date-prefix "#+TITLE: Daily Notes ")
