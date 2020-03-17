@@ -52,6 +52,7 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq org-journal-dir "~/Documents/org/journal/"
-      org-journal-file-format "%Y%m%d.org"
-      org-journal-date-prefix "#+TITLE: Daily Notes ")
+(after! org-journal
+  (setq org-journal-dir "~/Documents/org/journal/"
+        org-journal-file-format "%Y%m%d.org"
+        org-journal-date-prefix "#+TITLE: Daily Notes "))
