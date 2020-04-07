@@ -52,7 +52,12 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 
-(after! org-journal
-  (setq org-journal-dir "~/Documents/org/journal/"
-        org-journal-file-format "%Y%m%d.org"
-        org-journal-date-prefix "#+TITLE: Daily Notes "))
+;; Customize org-journal attributes
+(setq org-journal-dir "~/Documents/org/journal/"
+      org-journal-file-format "%Y%m%d.org"
+      org-journal-date-prefix "#+TITLE: Daily Notes ")
+
+;; Use complicated fonts with neotree
+;; Requires running `all-the-icons-install-fonts'
+(after! neotree
+  (setq doom-themes-neotree-file-icons t))
