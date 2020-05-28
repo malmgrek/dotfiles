@@ -27,6 +27,9 @@ alias netgen="/opt/netgen/bin/netgen"
 # Source fzf key bindings
 source /usr/share/fzf/shell/key-bindings.bash
 
+# Enable ls colors
+alias ls="ls --color=auto"
+
 #
 # Install color themes
 # --------------------

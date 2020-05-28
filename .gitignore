@@ -50,3 +50,10 @@
 .config/i3/**
 !.config/i3/config
 !.config/i3/status.toml
+
+# Configs Alacritty
+!.config/
+.config/**
+!.config/alacritty/
+.config/alacritty/**
+!.config/alacritty/alacritty.yml
