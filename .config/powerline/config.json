@@ -17,15 +17,15 @@
 			"theme": "default"
 		},
 		"shell": {
-			"colorscheme": "default",
-			"theme": "default",
+			"colorscheme": "custom",
+			"theme": "default_leftonly",
 			"local_themes": {
 				"continuation": "continuation",
 				"select": "select"
 			}
 		},
 		"tmux": {
-			"colorscheme": "default",
+			"colorscheme": "solarized",
 			"theme": "default"
 		},
 		"vim": {
