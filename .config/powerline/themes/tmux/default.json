@@ -2,10 +2,6 @@
 	"segments": {
 		"right": [
 			{
-				"function": "powerline.segments.common.vcs.branch",
-				"priority": 50
-			},
-			{
 				"function": "powerline.segments.common.vcs.stash",
 				"priority": 40
 			},
