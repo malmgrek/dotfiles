@@ -44,6 +44,9 @@ alias ls="ls --color=auto"
 # https://powerline.readthedocs.io/en/latest/installation.html#repository-root
 #
 # Source also */powerline/bindings/tmux/powerline.conf in .tmux.conf
+# 
+# If you want to reload powerline settings, run
+# powerline-daemon --replace
 #
 if [ -f `which powerline-daemon` ]; then
   powerline-daemon -q
@@ -53,3 +56,4 @@ if [ -f `which powerline-daemon` ]; then
 fi
 
 export TERM=tmux-256color
+eval $(dircolors)
