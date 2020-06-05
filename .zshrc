@@ -70,8 +70,9 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  virtualenv
   tmux
+  virtualenv
+  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -101,9 +102,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Vi editing
-bindkey -v
 
 # Custom environment variables
 export NETGENDIR="/opt/netgen/bin"
