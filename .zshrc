@@ -69,10 +69,13 @@ ZSH_THEME="malmgrek"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  autojump
   conda
   git
   tmux
   vi-mode
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -121,5 +124,5 @@ source /usr/share/fzf/shell/key-bindings.zsh
 # }
 
 # Enable directory colors in Alacritty
-export TERM=screen-256color
+export TERM=xterm-256color
 eval $(dircolors)
