@@ -14,7 +14,7 @@ export KEYTIMEOUT=1  # Make mode change faster
 # Fzf
 # ---
 HISTFILE="$HOME/.zsh_history"
-HISTSIZW=1000
+HISTSIZE=1000
 SAVEHIST=1000
 source /usr/share/fzf/shell/key-bindings.zsh
 
