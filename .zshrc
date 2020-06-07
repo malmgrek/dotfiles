@@ -51,9 +51,7 @@ useZshSyntaxHighlighting () {
   source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 }
 
-# ==================
-# Pure theme package
-# ==================
+# Pure theme
 updatePure () {
   cd $ZSH/pure
   git pull
