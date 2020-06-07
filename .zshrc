@@ -8,7 +8,7 @@ export ZSH="/home/stastr/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="malmgrek"
+ZSH_THEME="malmturk"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -106,23 +106,3 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Custom environment variables
-export NETGENDIR="/opt/netgen/bin"
-
-# Custom aliases
-alias conda="/home/stastr/miniconda/bin/conda"
-alias netgen="/opt/netgen/bin/netgen"
-
-# Enable fzf key bindings
-source /usr/share/fzf/shell/key-bindings.zsh
-
-# Hide "user@hostname" in agnoster theme
-# prompt_context() {
-#   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-#     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
-#   fi
-# }
-
-# Enable directory colors in Alacritty
-export TERM=xterm-256color
-eval $(dircolors)
