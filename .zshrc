@@ -65,15 +65,27 @@ usePure () {
   prompt pure
 }
 
+# Powerlevel10k
+updatePowerlevel10k () {
+  cd $ZSH/powerlevel10k
+  git pull
+  cd $HOME
+}
+usePowerlevel10k () {
+  source $ZSH/powerlevel10k/powerlevel10k.zsh-theme
+}
+
 
 # Update packages
 updateZshPackages () {
+  updatePowerlevel10k
+  updatePure
   updateZshAutosuggestions
   updateZshSyntaxHighlighting
-  updatePure
   print -P "%F{green} ✓ All .zsh packages updated, please re-source .zshrc %f"
 }
 
 useZshAutosuggestions
 useZshSyntaxHighlighting
 usePure
+# usePowerlevel10k
