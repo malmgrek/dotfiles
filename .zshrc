@@ -84,12 +84,18 @@ usePure
 # usePowerlevel10k
 
 
-#
-# Misc/own
-# --------
+# =============
+# Miscellaneous
+# =============
+
+# Aliaases
 alias conda="$HOME/miniconda/bin/conda"
+
+# Alacritty: it seems hard to have all
+#            ls colors show up correctly.
+#            cf. also /etc/DIR_COLORS
 alias ls="ls --color=auto"
-export TERM=tmux-256color  # Makes colors work in Tmux
+export TERM=xterm-256color
 eval $(dircolors)
 
 
