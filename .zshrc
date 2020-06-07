@@ -32,36 +32,48 @@ source /usr/share/fzf/shell/key-bindings.zsh
 # ==================================
 
 # Git-autosuggestions
-function updateZshAutosuggestions () {
+updateZshAutosuggestions () {
   cd $ZSH/zsh-autosuggestions
   git pull
+  cd $HOME
 }
-source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
+useZshAutosuggestions () {
+  source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
+}
 
 # Zsh-syntax-highlighting
-function updateZshSyntaxHighlighting () {
+updateZshSyntaxHighlighting () {
   cd $ZSH/zsh-syntax-highlighting
   git pull
+  cd $HOME
 }
-source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+useZshSyntaxHighlighting () {
+  source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+}
 
 # ==================
 # Pure theme package
 # ==================
-function updatePure () {
+updatePure () {
   cd $ZSH/pure
   git pull
+  cd $HOME
 }
-fpath+=$ZSH/pure
-autoload -U promptinit; promptinit
-prompt pure
+usePure () {
+  fpath+=$ZSH/pure
+  autoload -U promptinit; promptinit
+  prompt pure
+}
 
 
 # Update packages
-function updateZshPackages () {
+updateZshPackages () {
   updateZshAutosuggestions
   updateZshSyntaxHighlighting
   updatePure
-  cd $HOME
   print -P "%F{green} ✓ All .zsh packages updated, please re-source .zshrc %f"
 }
+
+useZshAutosuggestions
+useZshSyntaxHighlighting
+usePure
