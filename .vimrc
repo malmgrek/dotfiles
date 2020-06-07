@@ -8,3 +8,4 @@ set t_Co=256
 " Color scheme
 colorscheme default
 
+autocmd BufRead,BufNewFile *.zsh-theme set filetype=zsh
