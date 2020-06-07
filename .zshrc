@@ -5,13 +5,6 @@
 export ZSH="$HOME/.zsh"
 
 #
-# Misc/own
-# --------
-alias conda="$HOME/miniconda/bin/conda"
-export TERM=xterm-256color  # Makes colors work in Tmux
-alias ls="ls --color=auto"  # Enable directory colors
-
-#
 # Vi style editing mode
 # ---------------------
 bindkey -v
@@ -89,3 +82,14 @@ useZshAutosuggestions
 useZshSyntaxHighlighting
 usePure
 # usePowerlevel10k
+
+
+#
+# Misc/own
+# --------
+alias conda="$HOME/miniconda/bin/conda"
+alias ls="ls --color=auto"
+export TERM=tmux-256color  # Makes colors work in Tmux
+eval $(dircolors)
+
+
