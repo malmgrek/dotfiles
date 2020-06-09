@@ -1,11 +1,22 @@
-" Enable powerline backed statusbar
-" set rtp+=$HOME/.local/lib/python3.7/site-packages/powerline/bindings/vim/
-" set laststatus=2  " always show statusline
+autocmd BufRead,BufNewFile *.zsh-theme set filetype=zsh
+
+" Vim-plug
+"
+" Run :PlugInstall to install
+"
+call plug#begin('~/.vim/plugged')
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+
+call plug#end()
+
+" Vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
 
 " Use 256 colors (use only if temrinal emulator supports 256 colors)
 set t_Co=256
+colorscheme pablo
 
-" Color scheme
-colorscheme default
-
-autocmd BufRead,BufNewFile *.zsh-theme set filetype=zsh
