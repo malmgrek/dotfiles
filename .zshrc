@@ -20,7 +20,7 @@ source /usr/share/fzf/shell/key-bindings.zsh
 
 # ==================================
 # Zsh packages
-# 
+#
 # NOTE:
 #  - Autojump:
 #    > sudo dnf install autojump-zsh
@@ -69,7 +69,9 @@ usePowerlevel10k () {
 }
 
 
+# ---------------
 # Update packages
+# ---------------
 updateZshPackages () {
   updatePowerlevel10k
   updatePure
@@ -88,6 +90,11 @@ usePure
 # =============
 # Miscellaneous
 # =============
+
+# Zmv
+autoload zmv
+alias zcp="zmv -C"
+alias zln="zmv -L"
 
 # Aliaases
 alias conda="$HOME/miniconda/bin/conda"
