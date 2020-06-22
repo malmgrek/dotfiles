@@ -104,8 +104,6 @@ alias conda="$HOME/miniconda/bin/conda"
 #            cf. also /etc/DIR_COLORS.
 #            The below seems to do it
 #            in a satisfactory way..
-#            The below seems to do it
-#            in a satisfactory way.
 alias ls="ls --color=auto"
 export TERM=xterm-256color
 eval $(dircolors)
