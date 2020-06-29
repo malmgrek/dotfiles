@@ -26,8 +26,13 @@ source /usr/share/fzf/shell/key-bindings.zsh
 #    > sudo dnf install autojump-zsh
 # ==================================
 
+printUpdateMsg () {
+  print -P "%F{blue}⏳Updating $1 %f"
+}
+
 # Git-autosuggestions
 updateZshAutosuggestions () {
+  printUpdateMsg "Zsh-autosuggestions"
   cd $ZSH/zsh-autosuggestions
   git pull
   cd $HOME
@@ -38,6 +43,7 @@ useZshAutosuggestions () {
 
 # Zsh-syntax-highlighting
 updateZshSyntaxHighlighting () {
+  printUpdateMsg "Zsh-syntax-highlighting"
   cd $ZSH/zsh-syntax-highlighting
   git pull
   cd $HOME
@@ -48,6 +54,7 @@ useZshSyntaxHighlighting () {
 
 # Pure theme
 updatePure () {
+  printUpdateMsg "Pure"
   cd $ZSH/pure
   git pull
   cd $HOME
@@ -60,6 +67,7 @@ usePure () {
 
 # Powerlevel10k
 updatePowerlevel10k () {
+  printUpdateMsg "Powerlevel10k"
   cd $ZSH/powerlevel10k
   git pull
   cd $HOME
@@ -77,7 +85,7 @@ updateZshPackages () {
   updatePure
   updateZshAutosuggestions
   updateZshSyntaxHighlighting
-  print -P "%F{green} ✓ All .zsh packages updated, please re-source .zshrc %f"
+  print -P "%F{green}✓ All .zsh packages updated, please re-source .zshrc %f"
 }
 
 # Use packages
