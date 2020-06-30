@@ -26,73 +26,50 @@ source /usr/share/fzf/shell/key-bindings.zsh
 #    > sudo dnf install autojump-zsh
 # ==================================
 
-printUpdateMsg () {
+updateZshPackage () {
+  # Git pull with logging message
   print -P "%F{blue}⏳Updating $1 %f"
-}
-
-# Git-autosuggestions
-updateZshAutosuggestions () {
-  printUpdateMsg "Zsh-autosuggestions"
-  cd $ZSH/zsh-autosuggestions
+  cd $ZSH/$1
   git pull
   cd $HOME
 }
-useZshAutosuggestions () {
-  source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
+sourceZshPackage () {
+  # Source a zsh package
+  source $ZSH/$1
 }
 
-# Zsh-syntax-highlighting
-updateZshSyntaxHighlighting () {
-  printUpdateMsg "Zsh-syntax-highlighting"
-  cd $ZSH/zsh-syntax-highlighting
-  git pull
-  cd $HOME
-}
-useZshSyntaxHighlighting () {
-  source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-}
-
-# Pure theme
-updatePure () {
-  printUpdateMsg "Pure"
-  cd $ZSH/pure
-  git pull
-  cd $HOME
-}
-usePure () {
+sourcePure () {
+  # source the Pure style
   fpath+=$ZSH/pure
   autoload -U promptinit; promptinit
   prompt pure
 }
 
-# Powerlevel10k
-updatePowerlevel10k () {
-  printUpdateMsg "Powerlevel10k"
-  cd $ZSH/powerlevel10k
-  git pull
-  cd $HOME
-}
-usePowerlevel10k () {
-  source $ZSH/powerlevel10k/powerlevel10k.zsh-theme
-}
 
-
-# ---------------
-# Update packages
-# ---------------
+# -------------------
+# Update zsh packages
+# -------------------
 updateZshPackages () {
-  updatePowerlevel10k
-  updatePure
-  updateZshAutosuggestions
-  updateZshSyntaxHighlighting
+  updateZshPackage "zsh-autosuggestions"
+  updateZshPackage "zsh-syntax-highlighting"
+  updateZshPackage "pure"
+  updateZshPackage "powerlevel10k"
   print -P "%F{green}✓ All .zsh packages updated, please re-source .zshrc %f"
 }
 
-# Use packages
-useZshAutosuggestions
-useZshSyntaxHighlighting
-usePure
-# usePowerlevel10k
+# -------------------
+# Source zsh packages
+# -------------------
+sourceZshPackages () {
+  sourceZshPackage "zsh-autosuggestions/zsh-autosuggestions.zsh"
+  sourceZshPackage "zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+  # sourceZshPackage "powerlevel10k/powerlevel10k.zsh-theme"
+  sourcePure
+}
+
+###################
+sourceZshPackages #
+###################
 
 
 # =============
@@ -104,8 +81,11 @@ autoload zmv
 alias zcp="zmv -C"
 alias zln="zmv -L"
 
-# Aliaases
+# Conda
 alias conda="$HOME/miniconda/bin/conda"
+
+# Exa
+
 
 # Alacritty: it seems hard to have all
 #            ls colors show up correctly.
