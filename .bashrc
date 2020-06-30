@@ -55,5 +55,6 @@ alias ls="ls --color=auto"
 #   . /home/stastr/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
 # fi
 
+# Enable nice colors in Tmux
 export TERM=tmux-256color
-eval $(dircolors)
+eval $(dircolors)  # Uncommenting defaults LS_COLORS

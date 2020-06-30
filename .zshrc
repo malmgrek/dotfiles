@@ -85,14 +85,14 @@ alias zln="zmv -L"
 alias conda="$HOME/miniconda/bin/conda"
 
 # Exa
+alias ls="exa"
+alias ll="exa -l"
+alias lla="exa -la"
+alias llt="exa -T"
+alias llfu="exa -bghGliS --git"
 
-
-# Alacritty: it seems hard to have all
-#            ls colors show up correctly.
-#            cf. also /etc/DIR_COLORS.
-#            The below seems to do it
-#            in a satisfactory way..
-alias ls="ls --color=auto"
+# Colors
 export TERM=xterm-256color
-eval $(dircolors)
+export LS_COLORS=""
+# eval $(dircolors)  # Uncommenting defaults LS_COLORS
 
