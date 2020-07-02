@@ -18,13 +18,9 @@ HISTSIZE=1000
 SAVEHIST=1000
 source /usr/share/fzf/shell/key-bindings.zsh
 
-# ==================================
+# ============
 # Zsh packages
-#
-# NOTE:
-#  - Autojump:
-#    > sudo dnf install autojump-zsh
-# ==================================
+# ============
 
 updateZshPackage () {
   # Git pull with logging message
@@ -33,6 +29,7 @@ updateZshPackage () {
   git pull
   cd $HOME
 }
+
 sourceZshPackage () {
   # Source a zsh package
   source $ZSH/$1
@@ -45,10 +42,6 @@ sourcePure () {
   prompt pure
 }
 
-
-# -------------------
-# Update zsh packages
-# -------------------
 updateZshPackages () {
   updateZshPackage "zsh-autosuggestions"
   updateZshPackage "zsh-syntax-highlighting"
@@ -57,9 +50,6 @@ updateZshPackages () {
   print -P "%F{green}✓ All .zsh packages updated, please re-source .zshrc %f"
 }
 
-# -------------------
-# Source zsh packages
-# -------------------
 sourceZshPackages () {
   sourceZshPackage "zsh-autosuggestions/zsh-autosuggestions.zsh"
   sourceZshPackage "zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
@@ -70,7 +60,6 @@ sourceZshPackages () {
 ###################
 sourceZshPackages #
 ###################
-
 
 # =============
 # Miscellaneous
