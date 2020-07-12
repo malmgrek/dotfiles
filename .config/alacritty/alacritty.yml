@@ -171,7 +171,7 @@ font:
 #draw_bold_text_with_bright_colors: false
 
 schemes:
-  one_dark: &one_dark
+  onedark: &onedark
     primary:
       background: '#282c34'
       foreground: '#abb2bf'
@@ -195,7 +195,7 @@ schemes:
       magenta: '#c678dd'
       cyan:    '#56b6c2'
       white:   '#ffffff'
-  one_light: &one_light
+  onelight: &onelight
     primary:
       foreground: '#282c34'
       background: '#ffffff'
@@ -242,7 +242,7 @@ schemes:
       cyan:    '#9aedfe'
       white:   '#e6e6e6'
 
-colors: *one_dark
+colors: *onedark
 
 # Visual Bell
 #
