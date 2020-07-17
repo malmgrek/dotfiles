@@ -3,6 +3,7 @@
 " Run :PlugInstall to install
 "
 call plug#begin('~/.vim/plugged')
+Plug 'dracula/vim', {'as':'dracula'}
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -28,13 +29,6 @@ if filereadable(color)
 else
   colorscheme delek
 endif
-
-
-" Vim-airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme='one'
-set noshowmode  " Disable the default status line
-
 
 " Additional file type definitions
 autocmd BufRead,BufNewFile *.zsh-theme set filetype=zsh
