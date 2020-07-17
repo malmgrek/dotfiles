@@ -55,6 +55,7 @@ sourceZshPackages () {
   sourceZshPackage "zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
   # sourceZshPackage "powerlevel10k/powerlevel10k.zsh-theme"
   sourcePure
+  source "$ZSH/swapcolors/swapcolors.zsh"
 }
 
 ###################

@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
 call plug#end()
 
 
@@ -22,12 +22,17 @@ if (has("termguicolors"))
 endif
 set t_Co=256  " Use 256 (uncomment if supported in terminal)
 syntax on
-colorscheme onedark
+let color = expand("~/.vim/color.vim")
+if filereadable(color)
+  exec "source" color
+else
+  colorscheme delek
+endif
 
 
 " Vim-airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme='onedark'
+let g:airline_theme='one'
 set noshowmode  " Disable the default status line
 
 
