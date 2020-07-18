@@ -4,6 +4,7 @@
 "
 call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', {'as':'dracula'}
+Plug 'jiangmiao/auto-pairs'
 Plug 'lifepillar/vim-solarized8'
 Plug 'tomasiser/vim-code-dark'
 Plug 'tpope/vim-fugitive'
