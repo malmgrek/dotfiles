@@ -7,6 +7,7 @@ Plug 'connorholyday/vim-snazzy'
 Plug 'dracula/vim', {'as':'dracula'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'lifepillar/vim-solarized8'
+Plug 'LnL7/vim-nix'
 Plug 'tomasiser/vim-code-dark'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
