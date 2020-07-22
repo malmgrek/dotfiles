@@ -3,6 +3,7 @@
 " Run :PlugInstall to install
 "
 call plug#begin('~/.vim/plugged')
+Plug 'connorholyday/vim-snazzy'
 Plug 'dracula/vim', {'as':'dracula'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'lifepillar/vim-solarized8'
