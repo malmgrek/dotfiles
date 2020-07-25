@@ -37,3 +37,4 @@ endif
 
 " Additional file type definitions
 autocmd BufRead,BufNewFile *.zsh-theme set filetype=zsh
+
