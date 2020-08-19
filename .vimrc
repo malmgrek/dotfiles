@@ -5,6 +5,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'connorholyday/vim-snazzy'
 Plug 'dracula/vim', {'as':'dracula'}
+Plug 'eigenfoo/stan-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lifepillar/vim-solarized8'
 Plug 'LnL7/vim-nix'
