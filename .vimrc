@@ -38,4 +38,7 @@ endif
 
 " Additional file type definitions
 autocmd BufRead,BufNewFile *.zsh-theme set filetype=zsh
+autocmd BufRead,BufNewFile .spacemacs set filetype=lisp
 
+" Remove trailing whitespace on saving
+autocmd BufWritePre * :%s/\s\+$//e
