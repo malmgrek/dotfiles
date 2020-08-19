@@ -36,10 +36,25 @@ sourceZshPackage () {
 }
 
 sourcePure () {
-  # source the Pure style
+  # Source the Pure style
   fpath+=$ZSH/pure
   autoload -U promptinit; promptinit
   prompt pure
+}
+
+sourceGitCompletion() {
+  # Install git-completion
+  #
+  # Source script is located at
+  #
+  #   https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
+  #
+  # NOTE: On some systems might require also installing `git-completion.bash`
+  #       around which the zsh-version wraps.
+  #
+  zstyle ":completion:*:*:git:*" script $ZSH/git-completion/git-completion.zsh
+  fpath+=$ZSH
+  autoload -Uz compinit && compinit
 }
 
 updateZshPackages () {
@@ -55,6 +70,7 @@ sourceZshPackages () {
   sourceZshPackage "zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
   # sourceZshPackage "powerlevel10k/powerlevel10k.zsh-theme"
   sourcePure
+  sourceGitCompletion
   source "$ZSH/swapcolors/swapcolors.zsh"
 }
 
