@@ -24,15 +24,25 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(load "~/.doom.d/color.el")
+(load (concat doom-private-dir "color.el"))
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Documents/org/")
+(setq org-directory "~/Documents/org/"
+      org-journal-file (concat org-directory "journal.org"))
+(after! org
+  (add-to-list 'org-capture-templates
+               '("J" "Custom journal" entry (file+olp+datetree org-journal-file)
+                 "* %?\n")))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
+
+;; Use complicated fonts with neotree
+;; Requires running `all-the-icons-install-fonts'
+(after! neotree
+  (setq doom-themes-neotree-file-icons t))
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -51,13 +61,3 @@
 ;;
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
-
-;; Customize org-journal attributes
-(setq org-journal-dir "~/Documents/org/journal/"
-      org-journal-file-format "%Y%m%d.org"
-      org-journal-date-prefix "#+TITLE: Daily Notes ")
-
-;; Use complicated fonts with neotree
-;; Requires running `all-the-icons-install-fonts'
-(after! neotree
-  (setq doom-themes-neotree-file-icons t))
