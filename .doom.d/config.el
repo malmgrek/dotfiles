@@ -33,7 +33,7 @@
 (after! org
   (add-to-list 'org-capture-templates
                '("J" "Custom journal" entry (file+olp+datetree org-journal-file)
-                 "* %?\n")))
+                 "* %<%H:%M> %?\n")))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
