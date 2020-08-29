@@ -1,3 +1,3 @@
-(("custom" . ((user-emacs-directory . "~/.emacs-custom.d")))
+(("custom" . ((user-emacs-directory . "~/.custom-emacs.d")))
  ("default" . ((user-emacs-directory . "~/doom-emacs")))
  ("spacemacs" . ((user-emacs-directory . "~/spacemacs"))))
