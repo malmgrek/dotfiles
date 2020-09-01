@@ -58,6 +58,7 @@ sourceGitCompletion() {
 }
 
 updateZshPackages () {
+  updateZshPackage "zsh-autopair"
   updateZshPackage "zsh-autosuggestions"
   updateZshPackage "zsh-syntax-highlighting"
   updateZshPackage "pure"
@@ -66,6 +67,7 @@ updateZshPackages () {
 }
 
 sourceZshPackages () {
+  sourceZshPackage "zsh-autopair/autopair.zsh"
   sourceZshPackage "zsh-autosuggestions/zsh-autosuggestions.zsh"
   sourceZshPackage "zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
   # sourceZshPackage "powerlevel10k/powerlevel10k.zsh-theme"
