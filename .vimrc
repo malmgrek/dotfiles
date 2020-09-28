@@ -2,10 +2,32 @@
 "
 " Run :PlugInstall to install
 "
+
+
+function! EnsurePlugInstalled()
+  let plugfile = $HOME.'/.vim/autoload/plug.vim'
+  if !filereadable(plugfile)
+    let url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    let curl = 'curl -fLo '.plugfile.' --create-dirs'
+    echom system(curl.' '.url)
+  endif
+endfunction
+
+
+call EnsurePlugInstalled()
+
+
+" Automatically install missing plugins on startup
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
+
+
 call plug#begin('~/.vim/plugged')
 Plug 'connorholyday/vim-snazzy'
 Plug 'dracula/vim', {'as':'dracula'}
-Plug 'eigenfoo/stan-vim'
+" Plug 'eigenfoo/stan-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lifepillar/vim-solarized8'
 Plug 'LnL7/vim-nix'
@@ -17,6 +39,7 @@ Plug 'rakr/vim-one'
 call plug#end()
 
 
+
 " Colors
 "
 " Use 24-bit (true-color) mode in Vim when outside tmux
@@ -24,11 +47,15 @@ call plug#end()
 " NOTE: A longer if statement for Neovim is given e.g. in
 "       https://github.com/joshdick/onedark.vim
 "
-if (has("termguicolors"))
+if exists("+termguicolors")
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-set t_Co=256  " Use 256 (uncomment if supported in terminal)
+" set t_Co=256  " Use 256 (uncomment if supported in terminal)
 syntax on
+
+" Load colorscheme from a file so we can swap it
 let color = expand("~/.vim/color.vim")
 if filereadable(color)
   exec "source" color
