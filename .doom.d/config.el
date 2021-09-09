@@ -44,6 +44,14 @@
 (after! neotree
   (setq doom-themes-neotree-file-icons t))
 
+;; Flutter executable to path
+(after! flutter
+  (setq flutter-sdk-path "~/src/flutter"))
+
+;; JS offset
+(after! javascript
+  (setq js2-basic-offset 2))
+
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
