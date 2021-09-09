@@ -71,6 +71,10 @@ sourceZshPackages () {
   sourceZshPackage "zsh-autosuggestions/zsh-autosuggestions.zsh"
   sourceZshPackage "zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
   # sourceZshPackage "powerlevel10k/powerlevel10k.zsh-theme"
+  # sourceZshPackage "powerlevel10k/config/p10k-robbyrussell.zsh"
+  # sourceZshPackage "powerlevel10k/config/p10k-rainbow.zsh"
+  # sourceZshPackage "powerlevel10k/config/p10k-lean.zsh"
+  # sourceZshPackage "powerlevel10k/config/p10k-classic.zsh"
   sourcePure
   sourceGitCompletion
   source "$ZSH/swapcolors/swapcolors.zsh"
@@ -103,4 +107,7 @@ alias llfu="exa -bghGliS --git"
 export TERM=xterm-256color
 export LS_COLORS=""
 # eval $(dircolors)  # Uncommenting defaults LS_COLORS
+
+# PATH
+export PATH="$PATH:/home/stastr/src/flutter/bin"
 
