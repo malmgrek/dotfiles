@@ -27,6 +27,11 @@ interval = 1
 format = "{1m}"
 
 [[block]]
+block = "keyboard_layout"
+driver = "setxkbmap"
+interval = 15
+
+[[block]]
 block = "backlight"
 device = "intel_backlight"
 
