@@ -31,11 +31,15 @@ Plug 'dracula/vim', {'as':'dracula'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'lifepillar/vim-solarized8'
 Plug 'LnL7/vim-nix'
+Plug 'mhartington/oceanic-next'
+Plug 'rakr/vim-one'
 Plug 'tomasiser/vim-code-dark'
+Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'rakr/vim-one'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
 
